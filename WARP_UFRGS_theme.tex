@@ -1,0 +1,110 @@
+% IPH-UFRGS Beamer Theme v.01
+% by Márcio Shigueaki Inada <mshigue@gmail.com>
+
+\documentclass[
+    brazil,
+    %aspectratio=169, % altera para o formato da apresentação para 16:9
+    ]{beamer}
+
+\usetheme{UFRGS} % use beamerthemeUFRGS.sty
+
+% {{ ---- Pacotes ----
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[
+    alf,                % citação alfabética autor data
+    abnt-etal-list=0,   % lista nomes na referência
+    abnt-etal-cite=3,   % número de autores et al
+    abnt-etal-text=it   % et al em itálico
+]{abntex2cite}	        % Citações padrão ABNT
+% ---- }}
+
+% {{ ---- Configurações ----
+%\definecolor{beamer@ufrgsThemeText}{RGB}{3,95,140} % altera a cor do tema UFRGS
+%\setbeamerfont{frametitle}{size=\Large} % altera o tamanho da fonte do título
+% ---- }}
+
+% {{ ---- Informações ----
+\title[titulo curto]{Titulo do trabalho}
+\subtitle[subtitulo curto]{Subtitulo do trabalho}
+\author[nome curto]{Seu nome completo}
+\institute[UFRGS]{orientador: nome do orientador \\ Universidade Federal do Rio Grande do Sul}
+\date{Junho 2019}
+% ---- }}
+
+% {{ ---- Documento ----
+\begin{document}
+
+\begin{frame}[plain,noframenumbering]
+  \titlepage
+\end{frame}
+
+\begin{frame}{Sumário}
+    \tableofcontents
+\end{frame}
+
+\section{Introdução}
+\begin{frame}{Introdução}
+    Texto normal \par
+    \textbf{Texto negrito} \par
+    \textit{Texto itálico} \par
+    \alert{Texto alerta} \par
+\end{frame}
+
+\section{Listas}
+\subsection{Itens}
+\begin{frame}{Itens}
+    \begin{itemize}
+        \item Como?
+        \begin{itemize}
+            \item como pensar?
+            \begin{itemize}
+                \item como agir?
+            \end{itemize}        
+        \end{itemize}
+        \item Onde?
+        \item Quando?
+    \end{itemize}
+\end{frame}
+
+\subsection{Numerados}
+\begin{frame}[t]{Numerados}
+    \textbf{\Large \textcolor{beamer@ufrgsThemeText}{Titulo de um texto no topo}}
+    \vspace{1cm}
+    \begin{enumerate}
+        \item Como?
+        \item Onde?
+        \item Quando?
+    \end{enumerate}
+\end{frame}
+
+\section{Blocos}
+\begin{frame}{Blocos}
+    \begin{block}{}
+        Caixa sem título
+    \end{block}
+    \begin{block}{Caixa}
+        Caixa normal
+    \end{block}
+    \begin{alertblock}{Caixa de alerta}
+        Caixa de alerta
+    \end{alertblock}
+\end{frame}
+
+\section{Citações}
+\begin{frame}{Citações}
+    The Tragedy of the Commons \cite{Hardin1968}. \par
+    \citeonline{Hardin1968} em \textit{The Tragedy of the Commons}. \par
+    Endogenous technological change \cite{romer1990endogenous}.
+\end{frame}
+
+\section{Referências}
+\begin{frame}{Referências}
+    \footnotesize
+    \bibliography{reference.bib} % Arquivo BibTex
+\end{frame}
+
+\end{document}
+% ---- }}
