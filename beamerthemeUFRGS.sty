@@ -1,80 +1,96 @@
 % IPH-UFRGS Beamer Theme v.01
 % by Márcio Shigueaki Inada <mshigue@gmail.com>
  
-%{{ ---- Packages ----
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{beamerthemeUFRGS}[2018/09/15 PPGE-UFRGS Beamer Theme]
 
-\usepackage{etoolbox}
-\usepackage{tikz}
+% Pacotes básicos ---
+\usepackage[portuguese]{babel}  % Idioma portugues
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{times}			    % Usa a fonte Times	
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+% ---
+
+% Outros pacotes ---
+\usepackage[
+    alf,                % citação alfabética autor data
+    abnt-etal-list=0,   % lista nomes na referência
+    abnt-etal-cite=3,   % número de autores et al
+    abnt-etal-text=it   % et al em itálico
+    ]{abntex2cite}	    % Citações padrão ABNT
+\usepackage{etoolbox}   %
+\usepackage{tikz}       % desenhos de gráficos
 
 \usetikzlibrary{backgrounds}
 \usetikzlibrary{calc}
-% ---- }}
+% ---
 
 \mode<presentation>
 
-%{{ ---- Colors ----
+% Cores ---
 \definecolor{beamer@ufrgsThemeText}{RGB}{3,95,140} % UFRGS Blue Text
 \definecolor{beamer@ufrgsRedFlame}{RGB}{197,67,56} % UFRGS Red Flame
 \definecolor{beamer@normalTextColor}{RGB}{52,52,52} % gray 90
 \definecolor{beamer@progressbarDarkBrown}{RGB}{96,76,56} % Progressbar color
 \definecolor{beamer@progreesbarLightBrown}{RGB}{235,129,27} % Progressbar color
 \definecolor{beamer@progressbarDarkTeal}{RGB}{35,55,59} % Progressbar color
-% ---- }}
+% ---
 
-%{{ ---- Images ----
-\pgfdeclareimage[height=0.12\paperwidth]{ufrgs}{logo_ufrgs.png} % logo UFRGS
-\pgfdeclareimage[height=0.1\paperwidth]{iph}{logo_iph.png} % logo IPH
-\pgfdeclareimage[height=0.1\paperwidth]{warp}{logo_warp.png} % logo WARP
-% ---- }}
+% Imagens ---
+\pgfdeclareimage[height=0.07\paperwidth]{ufrgs}{logo_ufrgs.png} % logo UFRGS
+\pgfdeclareimage[height=0.07\paperwidth]{iph}{logo_iph.png} % logo IPH
+\pgfdeclareimage[height=0.07\paperwidth]{gespla}{logo_gespla.png} % logo GESPLA
+% ---
 
-%{{ ---- Title page ----
+% Página de título ---
 \def\maketitle{\ifbeamer@inframe\titlepage\else\frame[plain]{\titlepage}\fi}
 \def\titlepage{\usebeamertemplate{title page}}
 \setbeamertemplate{title page}{
-    \begin{minipage}[b][\paperheight]{\textwidth}
-        \vfill
-        \ifx\inserttitle\@empty%
-        \else%
+    \vspace*{2.00cm}
+    \vfill
+    \ifx\inserttitle\@empty%
+    \else%
         {\raggedright\linespread{1.0}\usebeamerfont{title}\usebeamercolor[fg]{title}\scshape\textbf{\inserttitle}\par}%
-        \vspace*{0.5em}
-        \fi%
-        \ifx\insertsubtitle\@empty%
-        \else%
+    \vspace*{0.05cm}
+    \fi%
+    \ifx\insertsubtitle\@empty%
+    \else%
         {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
-        \vspace*{0.5em}
-        \fi%
-        \begin{tikzpicture}
-            \draw[beamer@ufrgsThemeText] (0, 0) -- (\textwidth, 0);
-        \end{tikzpicture}%
-        \vspace*{1em}
-        \ifx\insertauthor\@empty%
-        \else%
+    \vspace*{0.05cm}
+    \fi%
+    \begin{tikzpicture}
+        \draw[beamer@ufrgsThemeText] (0, 0) -- (\textwidth, 0);
+    \end{tikzpicture}%
+    \vspace*{0.10cm}
+    \ifx\insertauthor\@empty%
+    \else%
         {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par}%
-        \vspace*{0.25em}
-        \fi%
-        \ifx\insertinstitute\@empty%
-        \else%
+    \vspace*{0.06cm}
+    \fi%
+    \ifx\insertinstitute\@empty%
+    \else%
         {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute\par}%
-        \fi%
-        \vspace*{3mm}
-        \ifx\insertdate\@empty%
-        \else%
+    \fi%
+    \vspace*{0.10cm}
+    \ifx\insertdate\@empty%
+    \else%
         {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par}%
-        \fi%
-        \vfill
-        \vspace*{5mm}
-    \end{minipage}
+    \fi%
+    \vfill
+    \vspace*{2.00cm}
+
     \begin{tikzpicture}[overlay,remember picture]
         \node[anchor=south east,inner sep=0pt,draw=none,xshift=-0.08\paperwidth,yshift=0.1\paperheight] at (current page.south east) {\pgfuseimage{ufrgs}}; % image UFRGS
-        \node[anchor=south east,inner sep=0pt,draw=none,xshift=-0.26\paperwidth,yshift=0.1\paperheight] at (current page.south east) {\pgfuseimage{iph}}; % image IPH
-        \node[anchor=south west,inner sep=0pt,draw=none,xshift=0.08\paperwidth,yshift=0.1\paperheight] at (current page.south west) {\pgfuseimage{warp}}; % image WARP
+        \node[anchor=south east,inner sep=0pt,draw=none,xshift=-0.20\paperwidth,yshift=0.1\paperheight] at (current page.south east) {\pgfuseimage{iph}}; % image IPH
+        \node[anchor=south west,inner sep=0pt,draw=none,xshift=0.08\paperwidth,yshift=0.1\paperheight] at (current page.south west) {\pgfuseimage{gespla}}; % image GESPLA
     \end{tikzpicture}
 }
-% ---- }}
+% ---
 
-%{{ ---- Progressbar ----
+% Barra de progresso ---
 \makeatletter
 \def\progressbar@titleprogressbar{}
 \newcount\progressbar@tmpcounta % auxiliary counter
@@ -100,9 +116,9 @@
         \draw[beamer@progreesbarLightBrown, fill=beamer@progreesbarLightBrown] (0, 0) rectangle (\progressbar@tmpdim, 0.4pt);
     \end{tikzpicture}
 }
-% ---- }}
+% ---
 
-%{{ ---- Frametitle ----
+% Frame ---
 \setbeamerfont{frametitle}{size=\Large} % frametitle font size
 \setbeamertemplate{frametitle}{
     \nointerlineskip
@@ -114,9 +130,9 @@
         \progressbar@titleprogressbar%
     \end{beamercolorbox}%
 }
-% ---- }}
+% ---
 
-%{{ ---- Settings ----
+% Configurações ---
 % setting lenght paragraph
 \setlength{\parskip}{1.5pt}
 
@@ -167,6 +183,6 @@
 
 % setting bibliography
 \setbeamertemplate{bibliography item}[text]
-% ---- }}
+% ---
 
 \mode<all>
